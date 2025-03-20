@@ -479,7 +479,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -510,7 +510,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -575,13 +575,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f64a1f08b5a705c4e9bdf34290bef1d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSpeed: 1
-  player: {fileID: 1717753031}
-  m_roughness: 1
-  m_magnitude: 1
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: e9642e5e23d61464ca4843717ee18b59, type: 2}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +822,7 @@ GameObject:
   - component: {fileID: 1717753035}
   - component: {fileID: 1717753034}
   - component: {fileID: 1717753037}
+  - component: {fileID: 1717753038}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -913,8 +915,8 @@ MonoBehaviour:
   moveSpeed: 5
   damage: 0
   attackCoolTime: 0
+  ghost: {fileID: 1717753038}
   wepon: {fileID: 1655056527}
-  cam: {fileID: 519420033}
 --- !u!50 &1717753035
 Rigidbody2D:
   serializedVersion: 4
@@ -941,7 +943,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1717753036
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1008,6 +1010,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1717753038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717753031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6077c7ddfae52547a6afb7e2cea4228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostDelay: 0.1
+  ghost: {fileID: 1709591765225586208, guid: f292b3f8c5d38c84783ddd6cc469f129, type: 3}
+  makeGhost: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
